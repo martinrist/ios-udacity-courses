@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func experiment() {
-        let nextController = UIImagePickerController()
+        let image = UIImage()
+        let nextController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         self.present(nextController, animated: true, completion: nil)
     }
 
 
 }
-
