@@ -16,8 +16,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func experiment() {
-        let image = UIImage()
-        let nextController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let nextController = UIAlertController()
+        nextController.title = "Alert!"
+        nextController.message = "Alert message..."
+        
+        let okAction = UIAlertAction(title: "ok", style: .default) {
+            action in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        nextController.addAction(okAction)
         self.present(nextController, animated: true, completion: nil)
     }
 
