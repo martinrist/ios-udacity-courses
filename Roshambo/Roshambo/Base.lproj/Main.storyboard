@@ -23,6 +23,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ils-Bg-5zY">
+                                <rect key="frame" x="150" y="170" width="75" height="65"/>
+                                <state key="normal" image="paper"/>
+                                <connections>
+                                    <action selector="pickPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w1S-H6-tvC"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RD2-v0-adG">
                                 <rect key="frame" x="50" y="311" width="75" height="65"/>
                                 <state key="normal" image="rock"/>
@@ -35,13 +42,7 @@
                                 <state key="normal" image="scissors"/>
                                 <connections>
                                     <action selector="pickScissors:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dnH-0z-8MG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ils-Bg-5zY">
-                                <rect key="frame" x="150" y="170" width="75" height="65"/>
-                                <state key="normal" image="paper"/>
-                                <connections>
-                                    <action selector="pickPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w1S-H6-tvC"/>
+                                    <segue destination="j3o-xT-mSt" kind="show" identifier="pickScissors" id="bjV-xB-1Q7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,6 +59,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="j3o-xT-mSt" kind="show" identifier="pickPaper" id="5zF-ET-Kt1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +70,7 @@
         <!--Results View Controller-->
         <scene sceneID="GUp-L4-cDZ">
             <objects>
-                <viewController storyboardIdentifier="ResultsViewController" id="j3o-xT-mSt" userLabel="Results View Controller" customClass="PresentResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PresentResultViewController" id="j3o-xT-mSt" userLabel="Results View Controller" customClass="PresentResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wz9-qo-9xX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,4 +115,7 @@
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bjV-xB-1Q7"/>
+    </inferredMetricsTieBreakers>
 </document>

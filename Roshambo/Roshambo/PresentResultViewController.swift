@@ -10,11 +10,19 @@ import UIKit
 
 class PresentResultViewController: UIViewController {
 
-    @IBOutlet weak var resultsImage: UIImageView!
+    @IBOutlet weak var resultsImage: UIImageView?
     @IBOutlet weak var resultsLabel: UILabel!
+    
+    var playerChoice: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let playerChoice = playerChoice {
+            print("Player chose \(playerChoice)")
+        } else {
+            print("No choice made")
+        }
     }
 
     
