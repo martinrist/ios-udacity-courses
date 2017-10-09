@@ -13,11 +13,11 @@ class PresentResultViewController: UIViewController {
     @IBOutlet weak var resultsImage: UIImageView!
     @IBOutlet weak var resultsLabel: UILabel!
     
-    var playerChoice: Choice?
+    var playerChoice: Choice!
     
     func getComputerChoice() -> Choice {
         var computerChoices: [Choice] = [.rock, .paper, .scissors]
-        let randomValue = arc4random() % 3
+        let randomValue = arc4random_uniform(3)
         return computerChoices[Int(randomValue)]
     }
 
@@ -27,39 +27,34 @@ class PresentResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayResult()
+    }
 
+    func displayResult() {
         if let playerChoice = playerChoice {
             let (image, text) = calculateResult(player: playerChoice, computer: getComputerChoice())
             resultsImage.image = UIImage(named: image)
             resultsLabel.text = text
-        } else {
-            print("No choice made")
         }
     }
 
     func calculateResult(player: Choice, computer: Choice) -> (String, String) {
         
-        let draw = ("itsATie", "It's a tie!")
-        
         switch (player, computer) {
-        case (.paper, .paper):
-            return draw
+        case (.paper, .paper), (.rock, .rock), (.scissors, .scissors):
+            return ("itsATie", "It's a tie!")
         case (.paper, .rock):
             return ("PaperCoversRock", "Paper covers Rock! You win!")
         case (.paper, .scissors):
             return ("ScissorsCutPaper", "Scissors cut Paper! You lose!")
         case (.rock, .paper):
             return ("PaperCoversRock", "Paper covers Rock! You lose!")
-        case (.rock, .rock):
-            return draw
         case (.rock, .scissors):
             return ("RockCrushesScissors", "Rock crushes scissors! You win!")
         case (.scissors, .paper):
             return ("ScissorsCutPaper", "Scissors cut Paper! You win!")
         case (.scissors, .rock):
             return ("RockCrushesScissors", "Rock crushes scissors! You lose!")
-        case (.scissors, .scissors):
-            return draw
         }
         
     }
