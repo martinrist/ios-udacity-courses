@@ -13,10 +13,10 @@ class PresentResultViewController: UIViewController {
     @IBOutlet weak var resultsImage: UIImageView!
     @IBOutlet weak var resultsLabel: UILabel!
     
-    var playerChoice: String?
+    var playerChoice: Choice?
     
-    func getComputerChoice() -> String {
-        var computerChoices = ["rock", "paper", "scissors"]
+    func getComputerChoice() -> Choice {
+        var computerChoices: [Choice] = [.rock, .paper, .scissors]
         let randomValue = arc4random() % 3
         return computerChoices[Int(randomValue)]
     }
@@ -37,31 +37,29 @@ class PresentResultViewController: UIViewController {
         }
     }
 
-    func calculateResult(player: String, computer: String) -> (String, String) {
+    func calculateResult(player: Choice, computer: Choice) -> (String, String) {
         
         let draw = ("itsATie", "It's a tie!")
         
         switch (player, computer) {
-        case ("paper", "paper"):
+        case (.paper, .paper):
             return draw
-        case ("paper", "rock"):
+        case (.paper, .rock):
             return ("PaperCoversRock", "Paper covers Rock! You win!")
-        case ("paper", "scissors"):
+        case (.paper, .scissors):
             return ("ScissorsCutPaper", "Scissors cut Paper! You lose!")
-        case ("rock", "paper"):
+        case (.rock, .paper):
             return ("PaperCoversRock", "Paper covers Rock! You lose!")
-        case ("rock", "rock"):
+        case (.rock, .rock):
             return draw
-        case ("rock", "scissors"):
+        case (.rock, .scissors):
             return ("RockCrushesScissors", "Rock crushes scissors! You win!")
-        case ("scissors", "paper"):
+        case (.scissors, .paper):
             return ("ScissorsCutPaper", "Scissors cut Paper! You win!")
-        case ("scissors", "rock"):
+        case (.scissors, .rock):
             return ("RockCrushesScissors", "Rock crushes scissors! You lose!")
-        case ("scissors", "scissors"):
+        case (.scissors, .scissors):
             return draw
-        default:
-            return ("", "No idea what's gone on here...")
         }
         
     }

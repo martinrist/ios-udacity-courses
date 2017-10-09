@@ -23,10 +23,10 @@ class PickMoveViewController: UIViewController {
             switch id {
                 case "pickPaper":
                     let resultVC = segue.destination as! PresentResultViewController
-                    resultVC.playerChoice = "paper"
+                    resultVC.playerChoice = .paper
                 case "pickScissors":
                     let resultVC = segue.destination as! PresentResultViewController
-                    resultVC.playerChoice = "scissors"
+                    resultVC.playerChoice = .scissors
             default:
                 print("Unknown segue identifier found")
             }
@@ -36,7 +36,7 @@ class PickMoveViewController: UIViewController {
     @IBAction func pickRock(_ sender: Any) {
         let resultVC = storyboard?.instantiateViewController(withIdentifier: "PresentResultViewController") as! PresentResultViewController
         
-        resultVC.playerChoice = "rock"
+        resultVC.playerChoice = .rock
         present(resultVC, animated: true, completion: nil)
     }
 
