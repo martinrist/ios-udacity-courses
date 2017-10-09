@@ -21,6 +21,10 @@ class PresentResultViewController: UIViewController {
         return computerChoices[Int(randomValue)]
     }
 
+    @IBAction func playAgain(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
