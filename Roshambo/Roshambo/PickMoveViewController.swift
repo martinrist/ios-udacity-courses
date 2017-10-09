@@ -12,7 +12,7 @@ class PickMoveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
+}
 
     @IBAction func pickPaper(_ sender: Any) {
         performSegue(withIdentifier: "pickPaper", sender: self)
